@@ -1,22 +1,64 @@
 <?php
 // Textes statiques du site du restaurant Leila
 
-//Meta information sur la page
-//Tableau associatif contenant les tirtes des pages
-$titre = [
-    "accueil" => "Bienvenue",
-    "vins"    => "Carte des vins",
-    "menu"    => "Menu"
+// Méta information sur la page
+// Premier essai : variables séparées (abandonné)
+/*
+$titreAccueil = "Bienvenue";
+$titreMenu = "Menu";
+$titreVins = "Carte des vins";
+*/
+// Deuxième essai : tableau numérique contenant les titres de toutes les pages (abandonné)
+/*
+$titres = [
+    "Bienvenue",
+    "Carte des vins",
+    "Menu"
 ];
-//exemple d'utilisation
-//Pour accder à la valeur "carte des vins", on écrit $titre ['vins']
-$description = [
-    "accueil" => "Bienvenue",
-    "vins"    => "Carte des vins",
-    "menu"    => "Menu"
+// Exemple d'utilisation : 
+// Pour accéder à la valeur "Menu", on écrit $titres[1]
+*/
+
+// Troisième essai : tableau ASSOCIATIF contenant les titres des pages (adopté)
+/*
+$titres = [
+    "accueil"   =>  "Bienvenue",
+    "vins"      =>  "Carte des vins",
+    "menu"      =>  "Menu"
+];
+// Exemple d'utilisation :
+// Pour accéder à la valeur "Carte des vins", on écrit $titres['vins']
+
+$descriptions = [
+    "accueil"   =>  "Restaurant Leila - Montréal",
+    "vins"      =>  "Carte des vins du restaurant Leila à Montréal. Carte variée, incluant des vins d'importation privée sélectionnés par notre sommelier.",
+    "menu"      =>  "Menu du restaurant Leila à Montréal. Un menu eclectique et raffiné, combinant créativité et tradition. Produits locaux et spécialités du terroir québécois."
+];
+*/
+
+$meta = [
+    'accueil'   =>  [
+                        'titre' =>  "Bienvenue",
+                        'desc'  =>  "Restaurant Leila - Montréal",
+                        'h1'    =>  "Leila"
+                    ],
+    'vins'      =>  [
+                        'titre' =>  "Carte des vins",
+                        'desc'  =>  "Carte des vins du restaurant Leila à Montréal. Carte variée, incluant des vins d'importation privée sélectionnés par notre sommelier.",
+                        'h1'    =>  "Vins"
+                    ],
+    'menu'      =>  [
+                        'titre' =>  "Menu",
+                        'desc'  =>  "Menu du restaurant Leila à Montréal. Un menu eclectique et raffiné, combinant créativité et tradition. Produits locaux et spécialités du terroir québécois.",
+                        'h1'    =>  "Menu"
+                    ]
 ];
 
-// Entête
+// Exemple d'utilisation : 
+// Pour accéder à la description de la page vins, on écrit $meta['vins']['desc']
+
+
+// Entête de la page
 $ent_sousTitre = "CUISINE BISTRONOMIQUE";
 $ent_heuresOuverture = "Ouvert aujourd'hui jusqu'à 23 h";
 $ent_adresse = "275 rue Notre-Dame Est, Montréal, Québec";

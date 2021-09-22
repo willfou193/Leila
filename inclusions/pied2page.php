@@ -1,14 +1,14 @@
     <footer>
       <h2><?= $pdp_info; ?></h2>
-      <p><?= $ent_reservationTitre; ?><br><?= $pdp_heuresOuverture2; ?></p>
-      <p>Pour réservation : 
-        <span class="gras">(514) 958-2580</span>
+      <p><?= $pdp_heuresOuverture1; ?><br><?= $pdp_heuresOuverture2; ?></p>
+      <p><?= $pdp_etiquetteReservation; ?>
+        <span class="gras"><?= $ent_telephone; ?></span>
       </p>
       <p class="adresse">
-        <a href="https://goo.gl/maps/9pTkr" target="lien-externe" title="Cliquez ici pour localiser le restaurant sur Google Maps">
-          <img src="images/iu/nav-icone-google-maps.png" alt="Carte">
+        <a href="https://goo.gl/maps/9pTkr" target="lien-externe" title="<?= $pdp_titreCarte; ?>">
+          <img src="images/iu/nav-icone-google-maps.png" alt="<?= $pdp_altCarte; ?>">
         </a>
-        275 rue Notre-Dame Est, Montréal, Québec
+        <?= $ent_adresse; ?>
       </p>
     </footer>
   </div>

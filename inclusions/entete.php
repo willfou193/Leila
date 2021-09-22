@@ -1,16 +1,5 @@
 <?php
-  /*
-    // Tests pour accéder aux paramètres de requête HTTP envoyés dans l'URL
-    $langueChoisie = $_GET['langue'];
-    echo "------";
-    echo $langueChoisie;
-    echo "------";
-    
-    echo 'Voici le tableau $_GET qui contient les paramètres envoyés dans une requête HTTP de type GET';
-    echo '<hr>';
-    print_r($_GET);
-    echo '<hr>';
-  */
+  // Internationalisation du site Web
 
   // 1) Commencer par définir la langue par défaut
   $langueChoisie = 'fr';
@@ -40,8 +29,8 @@
   <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:700,900|Roboto+Slab:300,700|Roboto:700,400' rel='stylesheet' type='text/css'>
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
-  <title><?php $titres[$page]; ?></title>
-  <meta name="description" content="">
+  <title><?= $meta[$page]['titre']; ?> | Restaurant Leila</title>
+  <meta name="description" content="<?= $meta[$page]['desc']; ?>">
   <link rel="stylesheet" href="css/ext/normalize.css">
   <link rel="stylesheet" href="css/leila.css">
 </head>
@@ -68,20 +57,12 @@
         ?>
 
         <nav class="i18n">
-          <a href="?langue=fr" class="actif" title="Français">fr</a>
-          <a href="?langue=en" class="" title="English">en</a>
+          <a href="?langue=fr" class="<?php if($langueChoisie == 'fr') { echo 'actif'; } ?>" title="Français">fr</a>
+          <a href="?langue=en" class="<?php if($langueChoisie == 'en') { echo 'actif'; } ?>" title="English">en</a>
         </nav>
       </div>
       <div class="titre-page">
-        <h1>
-          <?php
-          if ($page == 'accueil') {
-            echo 'LEILA';
-          } else {
-            echo $page;
-          }
-          ?>
-        </h1>
+        <h1><?= strtoupper($meta[$page]['h1']); ?></h1>
 
         <?php if ($page == 'accueil') {  ?>
           <h3><?= $ent_sousTitre; ?></h3>
