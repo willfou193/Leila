@@ -1,4 +1,14 @@
 <?php
+  //Déterminer les langues disponibles sur le site
+  $contenuDossierTextes = scandir('textes');
+  $langueDisponibles = [];
+  foreach($contenuDossierTextes as $nomDossier){
+    if($nomDossier != '.' && $nomDossier != '..'){
+      //array_push($langueDisponibles, $nomDossier); //Bon
+      $langueDisponibles[] = $nomDossier; //Meilleur
+    }
+  }
+
   // Internationalisation du site Web
 
   // 1) Commencer par définir la langue par défaut
@@ -6,12 +16,12 @@
 
   // 2) Vérifier s'il y a un choix de langue déjà fait auparavant 
   // .............. (et retenu dans un "cookie")
-  if(isset($_COOKIE['leila_langue'])) {
+  if(isset($_COOKIE['leila_langue'])&& in_array($_COOKIE['leila_langue'], $langueDisponibles )) {
     $langueChoisie = $_COOKIE['leila_langue'];
   }
 
   // 3) Déterminer le choix de langue explicitement fait par l'utilisateur (si un choix est fait : c'est à dire un lien est cliqué dans la navigation multilingue)
-  if(isset($_GET['langue'])) {
+  if(isset($_GET['langue']) && in_array($_GET['langue'], $langueDisponibles )) {
     $langueChoisie = $_GET['langue'];
 
     // Retenir ce choix !!! 
@@ -57,8 +67,11 @@
         ?>
 
         <nav class="i18n">
-          <a href="?langue=fr" class="<?php if($langueChoisie == 'fr') { echo 'actif'; } ?>" title="Français">fr</a>
-          <a href="?langue=en" class="<?php if($langueChoisie == 'en') { echo 'actif'; } ?>" title="English">en</a>
+
+          <?php foreach($langueDisponibles as $codeLangue) { ?>
+              <a href="?langue=<?= $codeLangue; ?>" class="<?php if($langueChoisie == $codeLangue) { echo 'actif';} ?>" title="Français"><?= $codeLangue; ?></a>
+          <?php } ?>
+          
         </nav>
       </div>
       <div class="titre-page">
