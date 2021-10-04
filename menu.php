@@ -4,13 +4,19 @@
 
   // Inclure le haut de page commun ici
   include('inclusions/entete.php');
+
+  //inclure la librarie de gestion des citations 
+  include('lib/citations.lib.php');
+  //Faire appel < la fonction citationAleatoire
+
+  $citationAlea = citationAleatoire($page, $langueChoisie);
 ?>
     <div class="contenu-principal">
       <div class="citation">
         <img src="images/menu-citation.jpg" alt="">
         <blockquote>
-          Le plus grand outrage que l'on puisse faire à un gourmand, c'est de l'interrompre dans l'exercice de ses mâchoires.
-          <cite>- Alexandre Balthazar Grimod de la Reynière</cite>
+         <?= $citationAlea['texte']; ?>
+          <cite>- <?= $citationAlea['auteur']; ?></cite>
         </blockquote>
       </div>
       <div class="carte">
