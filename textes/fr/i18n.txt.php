@@ -87,6 +87,7 @@ $acc_introP2 = "Un immeuble parmi les plus anciens de la ville dans... la rue Ne
 /* 
     Le texte de cette section du site représente du *contenu dynamique* (et non pas des textes statiques), et sera géré plus tard dans le cours (une exception pour les 2 mots "pour" et "personnes" utilisés dans la description des plats, que je voudrais discuter avec vous en classe).
 */
+$mnu_portions  = "portion :";
 
 // Carte des vins
 $vin_frmEtiquette = "Recherche : ";
